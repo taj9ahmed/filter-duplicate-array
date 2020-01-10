@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>title</h1>
+  <form action="">
+    <input type="text" name="" id="input">
+    <input type="button" onclick="filter_duplicates()" value ="filter duplicates" >
+  </form>
+  <div id="output"></div>
+  
+   <script>
+     /* var arr = prompt("enter input");
+arr = arr.split();
+ */
+function filter_duplicates() {
+  document.body.style.backgroundColor = "white";
+let arr = document.getElementById("input").value;
+arr = arr.split('');
+for ( let ndx1 = 0; ndx1 < arr.length; ndx1++) {
+// 	console.log( arr[ndx1] );
+// console.log( arr.length );
+  for ( let ndx2 = ndx1+1; ndx2 < arr.length; ndx2++) {
+    if ( arr[ndx1] == arr[ndx2] ) {
+      
+      arr.splice( ndx2, 1);
+    }
+  }
+}
+
+display_results(arr);
+}//end function
+
+function display_results(arr) {
+//html output element
+let p = document.createElement("P");
+let textnode = document.createTextNode(arr);
+// textnode.style.backgroundColor = "yellow";
+// document.body.style.backgroundColor = "red";
+p.appendChild(textnode);
+let output = document.getElementById("output");
+output.appendChild(p);
+document.getElementById("output").style.backgroundColor = "yellow";
+
+}//end function
+
+
+   </script> 
+   
+   
+</body>
+</html>
